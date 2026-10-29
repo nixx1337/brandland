@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"=== docker-deploy ===\" && ls -la \"C:/Claude code/prj1/projects/2026-05-brandland/docker-deploy/\" && echo \"\" && echo \"=== claudeCode ===\" && ls -la \"C:/Claude code/prj1/projects/2026-05-brandland/claudeCode/\" 2>/dev/null || echo \"claudeCode folder does not exist or is empty\")",
+      "Bash(echo \"=== images ===\" && ls \"C:/Claude code/prj1/projects/2026-05-brandland/docker-deploy/images/\" && echo \"\" && echo \"=== .claude ===\" && find \"C:/Claude code/prj1/projects/2026-05-brandland/docker-deploy/.claude\" -type f 2>/dev/null && echo \"\" && echo \"=== prj1 .claude ===\" && find \"C:/Claude code/prj1/.claude\" -maxdepth 3 -type d 2>/dev/null)",
+      "Bash(timeout 90 npx -y skills find \"web design landing page\")",
+      "Bash(timeout 90 npx -y skills find \"frontend design animation motion\")",
+      "Bash(timeout 120 npx -y skills add halt-catch-fire/skills@landing-page-design -g -y)",
+      "Bash(find \"$HOME/.agents/skills/landing-page-design\" \"$HOME/.claude/skills/landing-page-design\" -type f 2>/dev/null | head -40)",
+      "PowerShell($root = \"C:\\\\Claude code\\\\prj1\\\\projects\\\\2026-05-brandland\\\\docker-deploy\"; Get-ChildItem -Force $root | ForEach-Object { if \\($_.PSIsContainer\\) { $size = \\(Get-ChildItem -Recurse -Force $_.FullName | Measure-Object Length -Sum\\).Sum; $count = \\(Get-ChildItem -Recurse -Force -File $_.FullName | Measure-Object\\).Count; \"[DIR] {0}  files={1}  size={2:N0} KB\" -f $_.Name, $count, \\($size/1KB\\) } else { \"      {0}  {1:N0} KB\" -f $_.Name, \\($_.Length/1KB\\) } })",
+      "PowerShell($root = \"C:\\\\Claude code\\\\prj1\\\\projects\\\\2026-05-brandland\\\\docker-deploy\"; $arc = \"C:\\\\Claude code\\\\prj1\\\\projects\\\\2026-05-brandland\\\\_archive\"; New-Item -ItemType Directory -Force $arc | Out-Null; $items = @\\(\"remotion-clip\",\"email-templates\",\"brandland_llm_team_colab.ipynb\",\"tpu_llm_server.ipynb\",\"hermes_colab_local_model.py\",\"hermes_colab_router.py\",\"email-templates-segment-a-it.md\",\"segment_b_email_templates.md\",\"fix-compare.ps1\",\"remade.html\"\\); foreach \\($i in $items\\) { Move-Item -Force \\(Join-Path $root $i\\) $arc; \"moved: $i\" })",
+      "PowerShell($img = \\(Get-ChildItem \"C:\\\\Claude code\\\\prj1\\\\projects\\\\2026-05-brandland\\\\docker-deploy\\\\images\" -File | Select-Object -First 1\\).Name; $r = Invoke-WebRequest -Uri \"http://localhost:8080/images/$img\" -UseBasicParsing -Method Head; \"images/$img -> $\\($r.StatusCode\\)\")"
+    ]
+  }
+}
