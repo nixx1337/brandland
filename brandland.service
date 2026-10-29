@@ -1,0 +1,20 @@
+# systemd service for auto-start on boot
+# Place at /etc/systemd/system/brandland.service
+# Then: sudo systemctl enable --now brandland
+
+[Unit]
+Description=BrandLand Landing Page
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/brandland
+ExecStart=/usr/bin/docker compose up -d --build
+ExecStop=/usr/bin/docker compose down
+User=root
+Group=docker
+
+[Install]
+WantedBy=multi-user.target

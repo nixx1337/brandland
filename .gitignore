@@ -1,0 +1,13 @@
+# SSL/keys — never commit
+ssl/
+*.key
+*.crt
+*.pem
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local backups
+backups/
+.claude

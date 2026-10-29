@@ -1,0 +1,48 @@
+# ЛЕНДИНГ BRANDLAND — Docker Compose
+#
+# Запуск (из этой папки):   docker compose up -d
+# Остановка:                docker compose down
+# Проверить, что работает:  открыть http://localhost:8080
+# Посмотреть логи:          docker compose logs -f
+#
+# Ничего собирать не нужно — используется готовый образ nginx,
+# а файлы сайта подключаются к нему напрямую (volumes).
+# Поэтому после правки index.html достаточно обновить страницу в браузере.
+#
+# Работает на любом Docker: Windows, Mac, Linux, VPS, NAS.
+
+services:
+  site:
+    # Официальный веб-сервер nginx, лёгкая версия (~45 МБ)
+    image: nginx:1.27-alpine
+
+    container_name: brandland
+
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+
+    ports:
+      # Tunnel reaches localhost:8080
+      - "127.0.0.1:8080:80"
+      # Public 80/443 removed to avoid direct bypass
+      
+    volumes:
+      # Файлы сайта: слева — файл в этой папке, справа — куда его видит nginx.
+      # :ro = только чтение (контейнер не может их изменить)
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./robots.txt:/usr/share/nginx/html/robots.txt:ro
+      - ./sitemap.xml:/usr/share/nginx/html/sitemap.xml:ro
+      - ./images:/usr/share/nginx/html/images:ro
+      # Настройки nginx (сжатие, кэш картинок, заголовки безопасности)
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+    # Автозапуск после перезагрузки сервера или сбоя
+    restart: unless-stopped
+
+    # Docker сам проверяет каждые 30 сек, что сайт отвечает
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

@@ -1,0 +1,24 @@
+# Caddyfile — reverse proxy for BrandLand Docker container
+# Place at /etc/caddy/Caddyfile on your server
+# Then: sudo systemctl restart caddy
+#
+# Caddy handles HTTPS automatically with Let's Encrypt (auto-renew)
+
+# Domain for BrandLand:
+brandland.com.ua, www.brandland.com.ua {
+    reverse_proxy localhost:8080
+    encode gzip zstd
+
+    # Security headers
+    header {
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Strict-Transport-Security "max-age=63072000"
+        -Server
+    }
+
+    # Cache static assets at edge
+    @static path *.jpg *.jpeg *.png *.svg *.webp *.ico *.woff2 *.css *.js
+    header @static Cache-Control "public, max-age=2592000"
+}
