@@ -149,6 +149,14 @@ em.acc{font-style:italic;color:var(--accent);transition:color .45s ease}
 
 /* ══ РОБОТИ: рядок з краю до краю, іррегулярна сітка ══ */
 .works{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+/* Ескіз → Виріб: пари до/після */
+.sketch-grid{grid-template-columns:repeat(3,1fr);gap:22px 14px}
+.sketch-pair{aspect-ratio:auto}
+.sketch-pair img{aspect-ratio:1}
+.sketch-pair figcaption{opacity:.92;transform:none;background:rgba(0,0,0,.45);padding:5px 10px;border-radius:20px;left:12px;bottom:12px}
+.sketch-pair:nth-child(even){margin-top:38px}
+@media(max-width:900px){.sketch-grid{grid-template-columns:repeat(2,1fr);gap:18px 10px}.sketch-pair:nth-child(even){margin-top:24px}}
+.sketch-grid .arrow-note{grid-column:1/-1;text-align:center;color:var(--muted);font-size:13.5px;margin:0}
 .works .work:nth-child(1),.works .work:nth-child(6){grid-column:span 2;grid-row:span 2}
 .work{position:relative;border-radius:var(--r-md);overflow:hidden;background:var(--panel)}
 .work img{aspect-ratio:1;object-fit:cover;width:100%;height:100%;transition:transform .7s var(--ease),opacity .5s;opacity:.94}
@@ -316,6 +324,7 @@ form .btn{max-width:none}
       <a href="#alive">Оживлення бренду</a>
       <a href="#terms">Терміни</a>
       <a href="#works">Роботи</a>
+      <a href="#sketch">Ескіз → виріб</a>
       <a href="#ny">Новий рік</a>
       <a href="#faq">Питання</a>
       <a href="#quote">Розрахунок</a>
@@ -401,15 +410,65 @@ form .btn{max-width:none}
       <h2 class="h2" style="margin-top:14px">Бренд, який <em class="acc">можна потримати.</em></h2>
     </div>
     <div class="works">
-      <figure class="work rv"><img src="images/wefamecat.jpg" alt="Маскот YouTube-каналу" loading="lazy"><figcaption>YouTube · маскот</figcaption></figure>
-      <figure class="work rv"><img src="images/kyivstarCat.jpg" alt="Маскот телеком-бренду" loading="lazy"><figcaption>телеком · маскот</figcaption></figure>
-      <figure class="work rv"><img src="images/pepsi2.jpg" alt="Промо-персонаж" loading="lazy"><figcaption>напої · промо</figcaption></figure>
-      <figure class="work rv"><img src="images/Lampos.jpg" alt="Фенікс-воїн" loading="lazy"><figcaption>кампанія · маскот</figcaption></figure>
-      <figure class="work rv"><img src="images/levis_R.jpg" alt="Промо-персонаж" loading="lazy"><figcaption>одяг · промо</figcaption></figure>
-      <figure class="work rv"><img src="images/loko.jpg" alt="Талісман IT-бренду" loading="lazy"><figcaption>IT · маскот</figcaption></figure>
-      <figure class="work rv"><img src="images/shrike.jpg" alt="Маскот Shrike" loading="lazy"><figcaption>мерч · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/wefamecat.jpg" alt="Маскот YouTube-каналу wefame: білий кіт з навушниками та боксерською рукавицею" loading="lazy"><figcaption>YouTube · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/kyivstarCat.jpg" alt="Корпоративний маскот телеком-бренду: блакитний кіт LOVE MARK з бантом-коміром" loading="lazy"><figcaption>телеком · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/pepsi2.jpg" alt="Промо-іграшки Pepsi: пінгвіни з фірмовими атрибутами бренду" loading="lazy"><figcaption>напої · промо-персонаж</figcaption></figure>
+      <figure class="work rv"><img src="images/Lampos.jpg" alt="Фенікс-воїн — маскот рекламної кампанії, шматний тираж" loading="lazy"><figcaption>кампанія · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/levis_R.jpg" alt="Промо-персонаж Levi's в фірмовому вуличному стилі" loading="lazy"><figcaption>одяг · промо-персонаж</figcaption></figure>
+      <figure class="work rv"><img src="images/loko.jpg" alt="Маскот ¡LOKO!: рожевий леопардовий звір з нашивкою бренду" loading="lazy"><figcaption>мерч · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/shrike.jpg" alt="Маскот Shrike: жовтий качур у худі з брендованою нашивкою" loading="lazy"><figcaption>мерч · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/gnome.jpg" alt="Маскот IT-бренду TitanApps з вишитим логотипом на комбінезоні" loading="lazy"><figcaption>IT · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/cat.jpg" alt="Сувенірний кіт з навушниками та нашийником-біркою бренда" loading="lazy"><figcaption>сувенір · брендування</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_11_2026-05-15_10-20-09.jpg" alt="Промо-маскот снек-бренду: рожевий гепард-персонаж" loading="lazy"><figcaption>FMCG · промо-маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_8_2026-05-15_10-20-09.jpg" alt="Маскот фармацевтичного бренду Bactoblis K12 з фірмовою емблемою" loading="lazy"><figcaption>фарма · маскот</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_13_2026-05-15_10-20-09.jpg" alt="Партия брендованих пташок з вишитим логотипом на грудях" loading="lazy"><figcaption>мерч · тираж</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_7_2026-05-15_10-20-09.jpg" alt="Ексклюзивна іграшка-сувенір з усмішненим персонажем" loading="lazy"><figcaption>сувенір · індивідуальний дизайн</figcaption></figure>
+      <figure class="work rv"><img src="images/bat.jpg" alt="Дизайнерська іграшка-персонаж з вишитою мімікою" loading="lazy"><figcaption>дизайн · індивідуальний</figcaption></figure>
+      <figure class="work rv"><img src="images/grusha_posle.jpg" alt="Ексклюзивний м'який сувенір «груша» з квітковою деталлю" loading="lazy"><figcaption>сувенір · ексклюзив</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_12_2026-05-15_10-20-09.jpg" alt="Тираж іграшок для кампанії: однакові персонажі в масках перед пакуванням" loading="lazy"><figcaption>кампанія · тираж</figcaption></figure>
+      <figure class="work rv"><img src="images/fish.jpg" alt="Тираж м'яких персонажів-рибок перед пакуванням" loading="lazy"><figcaption>кампанія · тираж</figcaption></figure>
     </div>
     <p class="micro" style="margin-top:20px">80&nbsp;% робіт захищені NDA — тут лише кейси, на публікацію яких бренди дали дозвіл.</p>
+  </div>
+</section>
+
+<!-- ══ ТИРАЖІ: серійне виробництво ══ -->
+<section class="sec" id="batch" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:40px">
+      <p class="eyebrow">Серійне шиття</p>
+      <h2 class="h2" style="margin-top:14px">Один зразок — <em class="acc">потім партія.</em></h2>
+    </div>
+    <div class="works">
+      <figure class="work rv"><img src="images/photo_10_2026-05-15_10-20-09.jpg" alt="Готовий тираж маскотів Фенікс-воїн з емблемою на грудях" loading="lazy"><figcaption>тираж · кампанія</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_3_2026-05-15_10-20-09.jpg" alt="Партія брендованих ляльок з фірмовими бірками: шапка з логотипом і футболка" loading="lazy"><figcaption>партія · брендування</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_9_2026-05-15_10-20-09.jpg" alt="Партія іграшок-качок у брендованих костюмах" loading="lazy"><figcaption>партія · кампанія</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_6_2026-05-15_10-20-09.jpg" alt="Партія пінгвінів-офіціантів для івенту" loading="lazy"><figcaption>партія · івент</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_4_2026-05-15_10-20-09.jpg" alt="Партія однакових персонажів-мандаринок у листі" loading="lazy"><figcaption>партія · тираж</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_2_2026-05-15_10-20-09.jpg" alt="Партия маскотів Shrike з брендованою нашивкою на спині" loading="lazy"><figcaption>тираж · мерч</figcaption></figure>
+      <figure class="work rv"><img src="images/Lampos.jpg" alt="Пакування фірмових іграшок перед відвантаженням клієнту" loading="lazy"><figcaption>партія · відвантаження</figcaption></figure>
+      <figure class="work rv"><img src="images/photo_5_2026-05-15_10-20-09.jpg" alt="Пакування брендованих іграшок для ексклюзивного сувеніра" loading="lazy"><figcaption>партія · відвантаження</figcaption></figure>
+    </div>
+    <p class="micro" style="margin-top:20px">Кожна партія проходить контроль перед пакуванням: однакові шви, кольори за брендбуком, бірки та упаковка під ваш бренд.</p>
+  </div>
+</section>
+
+<!-- ══ ЕСКІЗ → ВИРОБ: галерея до/після ══ -->
+<section class="sec" id="sketch" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:40px">
+      <p class="eyebrow">Ескіз → Виріб</p>
+      <h2 class="h2" style="margin-top:14px">Від картинки — <em class="acc">до іграшки в руках.</em></h2>
+      <p class="lead" style="margin-top:18px">Приносите ескіз, 2D-векторний логотип, 3D-модель або фото персонажа — шиємо зразок, який ви затверджуєте особисто, з правками. Ось як виглядає цей перехід у реальних кейсах.</p>
+    </div>
+    <div class="works sketch-grid">
+      <figure class="work sketch-pair rv"><img src="images/loko_Eskiz.jpg" alt="Ескіз персонажа ¡LOKO!: концепт-лист з виглядами та елементами брендування" loading="lazy"><figcaption>ескіз · концепт</figcaption></figure>
+      <figure class="work sketch-pair rv"><img src="images/loko2.jpg" alt="Готовий маскот ¡LOKO!: той самий персонаж з ескізу, пошитий з нашивкою бренду" loading="lazy"><figcaption>виріб · маскот</figcaption></figure>
+      <figure class="work sketch-pair rv"><img src="images/woin_before.jpg" alt="Затверджений зразок Фенікс-воїна перед запуском у тираж" loading="lazy"><figcaption>зразок · до затвердження</figcaption></figure>
+      <figure class="work sketch-pair rv"><img src="images/photo_10_2026-05-15_10-20-09.jpg" alt="Готовий тираж маскотів Фенікс-воїн після затвердження зразка" loading="lazy"><figcaption>тираж · після</figcaption></figure>
+      <figure class="work sketch-pair rv"><img src="images/mala_eskiz.jpg" alt="Затверджений зразок персонажа з фірмовим одягом, 30 см" loading="lazy"><figcaption>зразок · з мірками</figcaption></figure>
+      <figure class="work sketch-pair rv"><img src="images/photo_3_2026-05-15_10-20-09.jpg" alt="Серійна партія того самого персонажа з брендованим одягом та бірками" loading="lazy"><figcaption>партія · після</figcaption></figure>
+    </div>
   </div>
 </section>
 
