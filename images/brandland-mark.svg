@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-300 -300 600 600" role="img" aria-label="BrandLand">
+<defs>
+<clipPath id="bl-L"><rect x="-400" y="-400" width="400" height="800"/></clipPath>
+<clipPath id="bl-R"><rect x="0" y="-400" width="400" height="800"/></clipPath>
+<clipPath id="bl-ear"><circle cx="191" cy="-133" r="80"/></clipPath>
+</defs>
+<g transform="translate(0 13.25)">
+<g clip-path="url(#bl-L)" fill="none" stroke="#5F8F6E" stroke-width="3.2" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="0" cy="0" rx="232" ry="190"/>
+<circle cx="-191" cy="-133" r="80"/>
+<circle cx="-196" cy="-128" r="38"/>
+<ellipse cx="0" cy="67" rx="117" ry="87"/>
+<circle cx="-78" cy="-23" r="22"/>
+<ellipse cx="-22" cy="33" rx="22" ry="28"/>
+<path d="M-8 80Q-38 112-68 90"/>
+</g>
+<g clip-path="url(#bl-R)">
+<ellipse cx="0" cy="0" rx="232" ry="190" fill="#1F2B24"/>
+<circle cx="191" cy="-133" r="80" fill="#1F2B24"/>
+<circle cx="186" cy="-127" r="41" fill="#3E5A4B" clip-path="url(#bl-ear)"/>
+<ellipse cx="0" cy="67" rx="117" ry="87" fill="#3E5A4B"/>
+<circle cx="78" cy="-23" r="22" fill="#3E5A4B"/>
+<ellipse cx="22" cy="33" rx="22" ry="28" fill="#1F2B24"/>
+<path d="M8 80Q38 112 68 90" fill="none" stroke="#1F2B24" stroke-width="7" stroke-linecap="round"/>
+</g>
+<line x1="0" y1="-250" x2="0" y2="223.5" stroke="#C9A470" stroke-width="5.5" stroke-linecap="round"/>
+</g>
+</svg>
