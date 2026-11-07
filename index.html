@@ -77,17 +77,19 @@ em.acc{font-style:italic;color:var(--accent);transition:color .45s ease}
 .micro{font-size:13px;line-height:1.4;color:var(--muted);margin:0}
 .skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--card);border-radius:8px;padding:14px 24px;font-size:16px;color:var(--ink);text-decoration:none}
 .skip:focus{left:16px;top:16px}
-.sec{padding:clamp(56px,7vw,104px) 0;position:relative;scroll-margin-top:72px}
+.sec{padding:clamp(56px,7vw,104px) 0;position:relative;scroll-margin-top:92px}
 .sec-head{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,3.5vw,44px)}
 .sec-head .h2{margin-top:12px}
 
 /* ══ ХЕДЕР ══ */
 .hdr{position:sticky;top:0;z-index:100;background:var(--page);border-bottom:1px solid var(--hairline);transition:background .45s ease,border-color .45s ease}
-.hdr__in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand__mark{display:block;flex:none;width:44px;height:42px}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand__mark{display:block;flex:none;width:57px;height:55px}
 .brand__mark svg{display:block;width:100%;height:100%}
-.brand__name{font-family:var(--serif);font-size:20px;color:var(--ink);line-height:1.1;white-space:nowrap;transition:color .45s ease}
+.brand__name{font-family:var(--serif);font-size:42px;font-weight:500;letter-spacing:-.01em;color:var(--ink);line-height:1;white-space:nowrap;transition:color .45s ease}
+.brand--ftr .brand__mark{width:44px;height:42px}
+.brand--ftr .brand__name{font-size:30px}
 .brand__name i{font-style:normal;color:var(--accent)}
 .nav{display:flex;align-items:center;gap:4px}
 .nav a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 14px;border-radius:8px;transition:background .2s ease,color .2s ease}
@@ -243,6 +245,10 @@ form .btn{max-width:none}
   .quote__grid{grid-template-columns:1fr}
 }
 @media (max-width:640px){
+  .hdr__in{min-height:64px}
+  .brand{gap:10px}
+  .brand__mark{width:44px;height:42px}
+  .brand__name{font-size:30px}
   .lead{font-size:16px}
   .row2{grid-template-columns:1fr}
 }
@@ -521,7 +527,10 @@ form .btn{max-width:none}
 
 <footer class="ftr">
   <div class="wrap ftr__in">
-    <span class="brand__name" style="font-size:18px">Brand<i>Land</i></span>
+    <a class="brand brand--ftr" href="#top" aria-label="BrandLand — на початок">
+      <img class="brand__mark" src="/images/brandland-mark-small.svg" alt="" width="44" height="42" loading="lazy">
+      <span class="brand__name">Brand<i>Land</i></span>
+    </a>
     <p>© 1995–2026 · Київ · Права — ваші за договором</p>
     <p><a href="mailto:toyland.anna@gmail.com">toyland.anna@gmail.com</a> · <a href="tel:+380952872560">+38 (095) 287-25-60</a></p>
   </div>
